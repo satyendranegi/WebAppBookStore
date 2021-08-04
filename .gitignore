@@ -1,2 +1,7 @@
 # Google App Engine generated folder
 appengine-generated/
+/.vs
+/WebAppBookStore/.vs/WebAppBookStore
+/WebAppBookStore/WebAppBookStore.sln
+/WebAppBookStore/WebAppBookStore/bin/Debug/netcoreapp3.1
+/WebAppBookStore/WebAppBookStore/obj
