@@ -16,9 +16,11 @@ namespace WebAppBookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //middleware
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -26,15 +28,46 @@ namespace WebAppBookStore
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("hello from my first middleware");//#1
+            //    await next();
+            //    await context.Response.WriteAsync("hello from my first middleware response");// then #2s
+            //});
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("hello from my second middleware"); // then #2
+            //    await next();
+            //    await context.Response.WriteAsync("hello from my second middleware"); //#1
+            //});
+
+            //Routing, map the all request of resource
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    if (env.IsDevelopment())
+                //    {
+                //       await context.Response.WriteAsync("Hello from Dev");
+                //    }
+                //    else if (env.IsProduction())
+                //    {
+                //        await context.Response.WriteAsync("Hello from Pro");
+                //    }
+                //    else if (env.IsEnvironment("Develop"))//custom environment
+                //    {
+                //        await context.Response.WriteAsync("Hello from Custom environment");
+                //    }
+                //    else
+                //    {
+                //        await context.Response.WriteAsync(env.EnvironmentName);
+                //    }
+                //});
             });
+            
         }
     }
 }
