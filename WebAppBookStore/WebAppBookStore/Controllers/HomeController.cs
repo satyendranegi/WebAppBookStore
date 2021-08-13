@@ -16,5 +16,9 @@ namespace WebAppBookStore.Controllers
         {
             return View();
         }
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
     }
 }

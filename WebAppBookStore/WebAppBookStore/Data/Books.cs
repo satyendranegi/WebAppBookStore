@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebAppBookStore.Models
+namespace WebAppBookStore.Data
 {
-    public class BookModel
+    public class Books
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -16,8 +16,5 @@ namespace WebAppBookStore.Models
         public string Ctegory { get; set; }
         public string Language { get; set; }
         public int TotalPages { get; set; }
-        [Display(Name = "Choose the cover photo of your book")]
-        [Required]
-        public IFormFile CoverPhoto { get; set; }
     }
 }
